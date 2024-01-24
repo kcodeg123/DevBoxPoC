@@ -1,6 +1,10 @@
 # DevBoxPoC
 
-## Initial System Checks
+The scope of the PoC will include
+* Intial System Checks (DevBox deployment using IaC - Bicep)
+* DevBox deployment manually (without IaC)
+
+## Initial System Checks (DevBox deployment using IaC - Bicep)
 For an initial system check, instead of creating all the DevBox required resources manually, let's use IaC to help create those.
 
 The below section is inspired from this [Source](https://github.com/Azure-Samples/Devcenter). 
@@ -20,7 +24,7 @@ Go to the [Azure Portal](https://portal.azure.com/) and on the top bar, open the
     DEPLOYINGUSERID=$(az ad signed-in-user show --query id -o tsv)
     
     #Create resource group
-    az group create -n $RG -l eastus
+    az group create -n $RG -l westeurope
     
     #Create devcenter common components
     DCNAME=$(az deployment group create -g $RG -f bicep/common.bicep -p nameseed=devbox devboxProjectUser=$DEPLOYINGUSERID --query 'properties.outputs.devcenterName.value' -o tsv)
@@ -29,3 +33,15 @@ Go to the [Azure Portal](https://portal.azure.com/) and on the top bar, open the
 
 ### Create a Dev Box
 Your Developers will access Dev Box resources through a dedicated portal; https://aka.ms/devbox-portal
+
+### Cleanup resources
+
+To delete multiple resource groups at the same time,  you can tag all the RGs to be deleted as `delete`.  After that, open the `Azure Cloud Shell` and run this `bash` script.
+
+    az group list --tag delete --query [].name -o tsv | xargs -otl az group delete --no-wait  -n
+
+Check this [tutorial](https://blog.jongallant.com/2020/05/azure-delete-multiple-resource-groups/) for more guidance if needed.
+
+## DevBox deployment manually (without IaC)
+
+Follow the steps [here](https://github.com/danielstocker/devboxlab) for Lab1, Lab2 & Lab3.
