@@ -1,5 +1,7 @@
 # Dev Box PoC - Scope
 
+TBD:
+
 **Questions**:
 * What are the developer scenarios to cover? OR are there custom VM image requirements or do we build a PoC with the standard VS/Windows images only?
    * Developer Tools
@@ -10,6 +12,7 @@ The **scope** of the PoC will include
 * Intial System Checks (DevBox deployment using IaC - Bicep)
 * DevBox deployment manually (without IaC)
 * Test Onboarding Process for a new developer
+* Monitoring
 
 Out of scope / Topics for follow up sessions:
 * VM Image Builder for creating custom VM Images
@@ -87,41 +90,64 @@ To delete multiple resource groups at the same time,  you can tag all the RGs to
 
 Check this [tutorial](https://blog.jongallant.com/2020/05/azure-delete-multiple-resource-groups/) for more guidance if needed.
 
-# DevBox deployment manually
+# Scenario 1: Project Lead manages assigned Projects with Microsoft hosted Network & built-in VM Images
 
-## Create the Base Resources (IT Admin Persona)
-
-> Roles required: 1 Global Admin
-
-**Resources to create:**
+## IT Admin actions
 * Create user on M365 admin center
-* Create base resources
-* Create a virtual network
-* Create a network connection
 * Create the Dev Center
-* Attach the network connection
-* Create a base Dev Box definition with a built-in VM image
-* [Optional] Prepare a custom Dev Box image
-* [Optional] Create a Dev Box definition with a custom VM image
+* Create a dev box definition with built-in VM
 * Create a Project
-* Assign `DevCenter Project Admin` + `Owner` permissions to the Dev Managers/Leads on the project resource
+* Give Project access to the Project Lead
+  * For this PoC, we will consider Owner permissions on the Project
 
-## Manage the Projects (Development Manager Persona)
-> Roles required: 1 Development Manager
+> Decide the level of access to give to the Project Lead. For more information, check [here](https://learn.microsoft.com/en-us/azure/dev-box/how-to-manage-dev-box-projects#permissions).
+> Things to consider:
+> * Does the Project Lead need to create new Projects? (Requires Owner permissions on the Dev Center)
+> * Does the Project Lead need to assign new developers access to the projects? (Requires Owner permissions on the Project)
+> * Or is it okay if the Project Leads only create dev box pools? (Requires the minimum DevCenter Project Admin permissions)
 
-Tasks to perform:
-* Add DevCenter Dev Box User for Developers in the Project Resource
-* Create dev box pools in the Project
+## Project Lead actions
+* Create a dev box pool
+  * Choose the dev box definition created earlier
+  * Choose a Microsoft hosted network
+* Give Project access to a Developer
 
-## Deploy & Test Dev Boxes (Developer Persona)
-> Roles required: 1 Developer
-
-Tasks to perform:
+## Developer actions
 * Create dev boxes
 * Connect to a dev box
 
-## Test development lifecycle in a Dev Box (Developer Persona)
-> Roles required: 1 Developer
+# Scenario 2: Project Lead manages assigned Projects with Self-hosted Network & built-in VM Images
 
-## Test new developer onboarding lifecycle
-> Roles required: 1 Global Admin, 1 Development Manager
+## IT Admin actions
+* Create a virtual network
+* Create a network connection
+* Attach the network connection to Dev Center
+* Create a Dev Box definition with a built-in VM image
+* Create a new Project and give access to the Project Lead
+
+## Project Lead actions
+* Create a Dev Box pool
+  * Choose the dev box definition created earlier
+  * Choose the self-hosted network created earlier
+* Give Project access to a Developer
+
+## Developer actions
+* Create dev boxes
+* Connect to a dev box
+
+# Scenario 3: Project Lead manages assigned Projects with Self-hosted Network & custom VM Images
+
+* Prepare a custom Dev Box image (can be automated with VM Image Builder)
+* Create a Dev Box definition with a custom VM image
+
+## Developer actions
+* Create dev boxes
+* Connect to a dev box
+
+# Scenario 4: Test the onboarding experience of a new developer
+
+* **IT Admin** to add a new user with proper licenses on the admin.microsoft.com portal
+* **Project lead** to give access to an existing project
+* **New developer** to test login
+
+## Scenario 5: SDLC within a Dev Box
