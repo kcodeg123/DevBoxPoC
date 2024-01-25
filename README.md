@@ -43,48 +43,9 @@ The main [prerequisites](https://learn.microsoft.com/en-us/azure/dev-box/quickst
 * **Networking** - If your organization routes egress traffic through a firewall, open the appropriate ports. For more information, see [Network requirements](https://learn.microsoft.com/en-us/windows-365/enterprise/requirements-network?tabs=enterprise%2Cent).
     * If you are using an Azure Network Connection, then you can review the [Health Checks](https://learn.microsoft.com/en-us/windows-365/enterprise/health-checks) in the `ANC Resource > Overview > Status tab` to review the . More on this, when we start with the PoC.
 
+# Start Fresh - Cleanup resources
 
-# Initial System Checks (DevBox deployment using IaC - Bicep)
-
-> Roles required: 1 Global Admin, 1 Developer
-
-For an initial system check, instead of creating all the DevBox required resources manually, let's use IaC to help create those. You need to login to the Azure Portal as an administrator.
-
-The below section is inspired from this [Source](https://github.com/Azure-Samples/Devcenter). 
-
-Go to the [Azure Portal](https://portal.azure.com/) and on the top bar, open the `Cloud Shell` (it'll prompt you to create a Storage Account if not already present) and then select `Bash`. If you prefer to use PowerShell, slight modifications are required on the below code.
-
-## Clone the repository
-
-    git clone https://github.com/Azure-Samples/Devcenter.git
-    cd Devcenter
-
-## Deploy the common infrastructure
-
-    RG=devcenter
-  
-    #Get the deploying users id for RBAC assignments
-    DEPLOYINGUSERID=$(az ad signed-in-user show --query id -o tsv)
-    
-    #Create resource group
-    az group create -n $RG -l westeurope
-    
-    #Create devcenter common components
-    DCNAME=$(az deployment group create -g $RG -f bicep/common.bicep -p nameseed=devbox devboxProjectUser=$DEPLOYINGUSERID --query 'properties.outputs.devcenterName.value' -o tsv)
-
-![image](https://github.com/kcodeg123/DevBoxPoC/assets/3813135/28ef5b80-5c76-4eba-b0bb-3b8b8d3dfe9a)
-
-## Create a Dev Box
-The Developer now must log in to the [Developer Portal](https://devportal.microsoft.com/) and perform the following steps:
-* Create a new Dev Box
-* Connect to the Dev Box
-* Open the browser and log in to the Azure Portal
-* Open VS Code and run `az login` to test the Azure CLI
-* Test access to other portals like Azure DevOps
-
-## Cleanup resources
-
-To delete multiple resource groups at the same time,  you can tag all the RGs to be deleted as `delete`.  After that, open the `Azure Cloud Shell` and run this `bash` script.
+If you would like to delete multiple resource groups at the same time,  you can tag all the RGs to be deleted as `delete`.  After that, open the `Azure Cloud Shell` and run this `bash` script.
 
     az group list --tag delete --query [].name -o tsv | xargs -otl az group delete --no-wait  -n
 
@@ -186,3 +147,37 @@ To ensure that resources are available for customers, Microsoft Dev Box has a li
 
 For more information, check the official [documentation](https://learn.microsoft.com/en-us/azure/dev-box/how-to-determine-your-quota-usage).
 If needed, you can [request a quota limit increase](https://learn.microsoft.com/en-us/azure/dev-box/how-to-request-quota-increase).
+
+# Scenario 10: Deploy using Infrastructure as Code
+
+The below section is inspired from this [Source](https://github.com/Azure-Samples/Devcenter). 
+
+Go to the [Azure Portal](https://portal.azure.com/) and on the top bar, open the `Cloud Shell` (it'll prompt you to create a Storage Account if not already present) and then select `Bash`. If you prefer to use PowerShell, slight modifications are required on the below code.
+
+## Clone the repository
+
+    git clone https://github.com/Azure-Samples/Devcenter.git
+    cd Devcenter
+
+## Deploy the common infrastructure
+
+    RG=devcenter
+  
+    #Get the deploying users id for RBAC assignments
+    DEPLOYINGUSERID=$(az ad signed-in-user show --query id -o tsv)
+    
+    #Create resource group
+    az group create -n $RG -l westeurope
+    
+    #Create devcenter common components
+    DCNAME=$(az deployment group create -g $RG -f bicep/common.bicep -p nameseed=devbox devboxProjectUser=$DEPLOYINGUSERID --query 'properties.outputs.devcenterName.value' -o tsv)
+
+![image](https://github.com/kcodeg123/DevBoxPoC/assets/3813135/28ef5b80-5c76-4eba-b0bb-3b8b8d3dfe9a)
+
+## Create a Dev Box
+The Developer now must log in to the [Developer Portal](https://devportal.microsoft.com/) and perform the following steps:
+* Create a new Dev Box
+* Connect to the Dev Box
+* Open the browser and log in to the Azure Portal
+* Open VS Code and run `az login` to test the Azure CLI
+* Test access to other portals like Azure DevOps
