@@ -3,7 +3,6 @@
 ## Scoping call - Review
 * Review prerequisites
 * Scenarios to cover - review below scope
-* Azure Deployment Environment - to include in scope now or as a follow up session in March/April?
 * What to include in the custom VM Image (scenario 3)
    * Developer Tools
    * Libraries
