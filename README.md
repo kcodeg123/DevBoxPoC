@@ -1,6 +1,12 @@
 # Dev Box PoC - Scope
 
-The scope of the PoC will include
+**Questions**:
+* What are the developer scenarios to cover? OR are there custom VM image requirements or do we build a PoC with the standard VS/Windows images only?
+   * Developer Tools
+   * Libraries
+   * Access to products (ADO, Azure Portal, etc)
+
+The **scope** of the PoC will include
 * Intial System Checks (DevBox deployment using IaC - Bicep)
 * DevBox deployment manually (without IaC)
 * Test Onboarding Process for a new developer
