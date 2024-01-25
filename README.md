@@ -1,6 +1,11 @@
 # Dev Box PoC - Scope
 
 TBD:
+* [Optimize the Visual Studio experience on Microsoft Dev Box with Visual Studio caches](https://learn.microsoft.com/en-us/azure/dev-box/how-to-generate-visual-studio-caches)
+* [Configure Azure diagnostic logs for a dev center](https://learn.microsoft.com/en-us/azure/dev-box/how-to-configure-dev-box-azure-diagnostic-logs)
+* [Configure a dev box by using Azure VM Image Builder and Microsoft Dev Box](https://learn.microsoft.com/en-us/azure/dev-box/how-to-customize-devbox-azure-image-builder)
+
+
 
 **Questions**:
 * What are the developer scenarios to cover? OR are there custom VM image requirements or do we build a PoC with the standard VS/Windows images only?
@@ -16,6 +21,7 @@ The **scope** of the PoC will include
 
 Out of scope / Topics for follow up sessions:
 * VM Image Builder for creating custom VM Images
+* Azure Deployment Environments
 
 # Prerequisites
 
@@ -143,11 +149,38 @@ Check this [tutorial](https://blog.jongallant.com/2020/05/azure-delete-multiple-
 ## Developer actions
 * Create dev boxes
 * Connect to a dev box
+* 
+# Scenario 4: Use a remote desktop client to connect to a dev box
 
-# Scenario 4: Test the onboarding experience of a new developer
+https://learn.microsoft.com/en-us/azure/dev-box/tutorial-connect-to-dev-box-with-remote-desktop-app?tabs=windows
+
+# Scenario 5: Test the onboarding experience of a new developer
 
 * **IT Admin** to add a new user with proper licenses on the admin.microsoft.com portal
 * **Project lead** to give access to an existing project
 * **New developer** to test login
 
-## Scenario 5: SDLC within a Dev Box
+
+# Scenario 6: SDLC within a Dev Box
+
+# Scenario 7: Manage & Troubleshoot Dev Boxes
+
+Shut down, restart, or hibernate a dev box
+Get information about a dev box
+Delete a dev box
+[Run Troubleshoot & repair](https://learn.microsoft.com/en-us/azure/dev-box/how-to-troubleshoot-repair-dev-box#run-troubleshoot--repair)
+
+# Scenario 8: Restrict access to dev boxes by using conditional access policies in Microsoft Intune
+
+https://learn.microsoft.com/en-us/azure/dev-box/how-to-configure-intune-conditional-access-policies 
+
+# Scenario 9: Cost Management
+
+You can go to the `Subscription` > `Cost Management (Cost Analysis)` > Select the `Resource Group` to see the associated costs per:
+* Project
+  * Dev Box Pool
+    * Dev Box
+
+![image](https://github.com/kcodeg123/DevBoxPoC/assets/3813135/2426f472-7823-4f7d-993b-7ac53b29abac)
+
+> Tip: You can grant the built-in role of 'Cost Management Reader' to the Project Leads so that they can view the costs associated with their projects. Note that they will have access to costs associated with all the resources in the subscription with this built-in role. You can choose to build a custom role if you want to customize the permissions.
