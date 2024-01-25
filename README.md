@@ -11,6 +11,9 @@ The **scope** of the PoC will include
 * DevBox deployment manually (without IaC)
 * Test Onboarding Process for a new developer
 
+Out of scope / Topics for follow up sessions:
+* VM Image Builder for creating custom VM Images
+
 # Prerequisites
 
 The main [prerequisites](https://learn.microsoft.com/en-us/azure/dev-box/quickstart-configure-dev-box-service#prerequisites) from an IT admin perspective will be as follows:
