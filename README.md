@@ -11,7 +11,7 @@
 * How much of the theory to cover
 * Theory - FAQs (anything else?)
 
-## Out of scope / Topics for follow up session:
+## Out of scope / Topics for follow up session (March/April):
 * Azure Deployment Environments?
 * [Use Azure VM Image Builder for creating custom VM Images for Microsoft Dev Box](https://learn.microsoft.com/en-us/azure/dev-box/how-to-customize-devbox-azure-image-builder)
 * [Optimize the Visual Studio experience on Microsoft Dev Box with Visual Studio caches](https://learn.microsoft.com/en-us/azure/dev-box/how-to-generate-visual-studio-caches)
@@ -180,3 +180,9 @@ The Developer now must log in to the [Developer Portal](https://devportal.micros
 * Open the browser and log in to the Azure Portal
 * Open VS Code and run `az login` to test the Azure CLI
 * Test access to other portals like Azure DevOps
+
+# Next Steps
+
+* Discuss rollout plan for developers
+* Follow up session with more topics
+* Design initial strategy for organizing Dev Centers
