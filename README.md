@@ -7,8 +7,7 @@
    * Developer Tools
    * Libraries
    * Access to products (ADO, Azure Portal, etc)
-* Rollout - How many developers to roll out to?
-* How much of the theory to cover
+* Rollout - How many developers to roll out to and what [SKUs](https://azure.microsoft.com/en-us/pricing/details/dev-box/)?
 * Theory - FAQs (anything else?)
 
 ## Out of scope / Topics for follow up session (March/April):
