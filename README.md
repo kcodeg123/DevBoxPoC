@@ -1,6 +1,6 @@
 # Microsoft Dev Box Proof of Concept Guide
 
-## Scoping call - Review
+## Scope call - Review
 * Review prerequisites
 * Scenarios to cover - review below scope
 * What to include in the custom VM Image (scenario 3)
@@ -9,20 +9,12 @@
    * Access to products (ADO, Azure Portal, etc)
 * Rollout - How many developers to roll out to and what [SKUs](https://azure.microsoft.com/en-us/pricing/details/dev-box/)?
 * Theory - FAQs (anything else?)
-* Timings
+* Planning
   * Day 0: Initial Checks (1.5h)
-  * Day 1: 10h - 13h (Selected theory / hands-on exercises
+  * Day 1: 10h - 13h (Selected theory / hands-on exercises)
     *  Keep afternoon for troubleshooting / exploring
     *  Update timings based on additional theory content
   * Day 2: 10h - 13h (pending scenarios / Q&A) / 16h - 17h (Retrospective, Next Steps)
-
-## Out of scope / Advanced topics for follow up session (March/April):
-* Azure Deployment Environments
-* [Optimize the Visual Studio experience on Microsoft Dev Box](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/speed-up-visual-studio-load-times-with-microsoft-dev-box/ba-p/3895978)
-* Enabling Git Commit-Graph optimizations
-* Automating Custom Image Build
-  * [Use Azure VM Image Builder for creating custom VM Images for Microsoft Dev Box](https://learn.microsoft.com/en-us/azure/dev-box/how-to-customize-devbox-azure-image-builder)
-  * Configuration as Code with [Microsoft Dev Box Customizations (devbox.yaml)](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/create-ready-to-code-dev-boxes-using-config-as-code-now-in/ba-p/3835034) (Private Preview). More information [here](https://azure.github.io/dev-box/overview/what-are-customizations.html).
 
 # Prerequisites
 
@@ -114,7 +106,11 @@ Check this [tutorial](https://blog.jongallant.com/2020/05/azure-delete-multiple-
   
 # Scenario 4: Use a remote desktop client to connect to a dev box
 
-https://learn.microsoft.com/en-us/azure/dev-box/tutorial-connect-to-dev-box-with-remote-desktop-app?tabs=windows
+Remote Desktop apps let you use and control a dev box from almost any device. For your desktop or laptop, you can choose to download the Remote Desktop client for Windows Desktop or Microsoft Remote Desktop for Mac. You can also download a Remote Desktop app for your mobile device: Microsoft Remote Desktop for iOS or Microsoft Remote Desktop for Android.
+
+Alternately, you can also connect to your dev box through the browser from the Microsoft Dev Box developer portal.
+
+More information available [here](https://learn.microsoft.com/en-us/azure/dev-box/tutorial-connect-to-dev-box-with-remote-desktop-app?tabs=windows).
 
 # Scenario 5: Test the onboarding experience of a new developer
 
@@ -202,3 +198,11 @@ The Developer now must log in to the [Developer Portal](https://devportal.micros
 * Discuss rollout plan for developers
 * Follow up session with more topics
 * Design initial strategy for organizing Dev Centers
+
+## Topics for follow up sessions:
+* Azure Deployment Environments
+* [Optimize the Visual Studio experience on Microsoft Dev Box](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/speed-up-visual-studio-load-times-with-microsoft-dev-box/ba-p/3895978)
+* Enabling Git Commit-Graph optimizations
+* Automating Custom Image Build
+  * [Use Azure VM Image Builder for creating custom VM Images for Microsoft Dev Box](https://learn.microsoft.com/en-us/azure/dev-box/how-to-customize-devbox-azure-image-builder)
+  * Configuration as Code with [Microsoft Dev Box Customizations (devbox.yaml)](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/create-ready-to-code-dev-boxes-using-config-as-code-now-in/ba-p/3835034) (Private Preview). More information [here](https://azure.github.io/dev-box/overview/what-are-customizations.html).
