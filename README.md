@@ -9,11 +9,20 @@
    * Access to products (ADO, Azure Portal, etc)
 * Rollout - How many developers to roll out to and what [SKUs](https://azure.microsoft.com/en-us/pricing/details/dev-box/)?
 * Theory - FAQs (anything else?)
+* Timings
+  * Day 0: Initial Checks (1.5h)
+  * Day 1: 10h - 13h (Selected theory / hands-on exercises
+    *  Keep afternoon for troubleshooting / exploring
+    *  Update timings based on additional theory content
+  * Day 2: 10h - 13h (pending scenarios / Q&A) / 16h - 17h (Retrospective, Next Steps)
 
-## Out of scope / Topics for follow up session (March/April):
-* Azure Deployment Environments?
-* [Use Azure VM Image Builder for creating custom VM Images for Microsoft Dev Box](https://learn.microsoft.com/en-us/azure/dev-box/how-to-customize-devbox-azure-image-builder)
-* [Optimize the Visual Studio experience on Microsoft Dev Box with Visual Studio caches](https://learn.microsoft.com/en-us/azure/dev-box/how-to-generate-visual-studio-caches)
+## Out of scope / Advanced topics for follow up session (March/April):
+* Azure Deployment Environments
+* [Optimize the Visual Studio experience on Microsoft Dev Box](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/speed-up-visual-studio-load-times-with-microsoft-dev-box/ba-p/3895978)
+* Enabling Git Commit-Graph optimizations
+* Automating Custom Image Build
+  * [Use Azure VM Image Builder for creating custom VM Images for Microsoft Dev Box](https://learn.microsoft.com/en-us/azure/dev-box/how-to-customize-devbox-azure-image-builder)
+  * Configuration as Code with [Microsoft Dev Box Customizations (devbox.yaml)](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/create-ready-to-code-dev-boxes-using-config-as-code-now-in/ba-p/3835034) (Private Preview). More information [here](https://azure.github.io/dev-box/overview/what-are-customizations.html).
 
 # Prerequisites
 
@@ -125,7 +134,15 @@ https://learn.microsoft.com/en-us/azure/dev-box/tutorial-connect-to-dev-box-with
 
 # Scenario 8: Restrict access to dev boxes by using conditional access policies in Microsoft Intune
 
-https://learn.microsoft.com/en-us/azure/dev-box/how-to-configure-intune-conditional-access-policies 
+For Dev Box, it’s common to configure conditional access policies to restrict who can access dev box, what they can do, and where they can access from. To configure conditional access policies, you can use Microsoft Intune to create dynamic device groups and conditional access policies.
+
+Some usage scenarios for conditional access in Microsoft Dev Box include:
+
+* Restricting access to dev box to only managed devices
+* Restricting the ability to copy/paste from the dev box
+* Restricting access to dev box from only certain geographies
+
+More information [here](https://learn.microsoft.com/en-us/azure/dev-box/how-to-configure-intune-conditional-access-policies).
 
 # Scenario 9: Cost Management & Quotas
 
