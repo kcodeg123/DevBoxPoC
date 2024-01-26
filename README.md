@@ -7,7 +7,7 @@
    * Developer Tools
    * Libraries
    * Access to products (ADO, Azure Portal, etc)
-* Rollout - How many developers to roll out to and what [SKUs](https://azure.microsoft.com/en-us/pricing/details/dev-box/)?
+* Rollout - #Developers to roll out to and [SKUs](https://azure.microsoft.com/en-us/pricing/details/dev-box/)
 * Theory - FAQs (anything else?)
 
 ## Delivery timings
