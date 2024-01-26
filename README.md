@@ -9,7 +9,8 @@
    * Access to products (ADO, Azure Portal, etc)
 * Rollout - How many developers to roll out to and what [SKUs](https://azure.microsoft.com/en-us/pricing/details/dev-box/)?
 * Theory - FAQs (anything else?)
-* Planning
+
+## Delivery timings
   * Day 0: Initial Checks (1.5h)
   * Day 1: 10h - 13h (Selected theory / hands-on exercises)
     *  Keep afternoon for troubleshooting / exploring
