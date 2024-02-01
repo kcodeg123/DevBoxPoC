@@ -51,13 +51,21 @@ If you would like to delete multiple resource groups at the same time,  you can 
 
 Check this [tutorial](https://blog.jongallant.com/2020/05/azure-delete-multiple-resource-groups/) for more guidance if needed.
 
-# Scenario 1: Project Lead manages assigned Projects with Microsoft hosted Network & built-in VM Images
+# Scenario 0: Initial steps to perform by the IT Admin
 
-## IT Admin actions
-* Create user on M365 admin center
+* Create the users on M365 admin center (unless already present)
+  * At least 1 Project Lead
+  * At least 1 Developer
+> Depending on the scenarios that you choose to test for this PoC, you may want to create more users.  
 * Create the Dev Center
 * Create a dev box definition with built-in VM
 * Create a Project
+> Similar to the #users, depending on the actual setup in your organization, you may want to create more of these resources.
+
+# Scenario 1: Project Lead manages assigned Projects with Microsoft hosted Network & built-in VM Images
+
+## IT Admin actions
+
 * Give Project access to the Project Lead
   * For this PoC, we will consider Owner permissions on the Project
 
