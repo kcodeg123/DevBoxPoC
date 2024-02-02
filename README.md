@@ -107,6 +107,8 @@ Check this [tutorial](https://blog.jongallant.com/2020/05/azure-delete-multiple-
 # Scenario 3: Project Lead manages assigned Projects with Self-hosted Network & custom VM Images
 
 * Prepare a custom Dev Box image (can be automated with VM Image Builder)
+* Create a system assigned/user assigned identity for the Dev Center
+> When adding this gallery, we will attempt to perform role assignments to give our service principal 'Reader' access and the dev center identity 'Contributor' access to the gallery. [Learn more](https://learn.microsoft.com/en-us/azure/dev-box/how-to-configure-azure-compute-gallery#provide-permissions-for-services-to-access-the-gallery)
 * Create a Dev Box definition with a custom VM image
 
 ## Developer actions
