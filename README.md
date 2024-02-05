@@ -41,7 +41,7 @@ The main [prerequisites](https://learn.microsoft.com/en-us/azure/dev-box/quickst
     * I do suggest a spare license (like E3/E5) to create and assign to a new user to test the flow of how it works when a new developer joins the team.
     * Microsoft **Intune automatic enrollment** must be enabled. Check [here](https://learn.microsoft.com/en-us/mem/intune/enrollment/quickstart-setup-auto-enrollment#set-up-automatic-enrollment) for more information.
 * **Networking** - If your organization routes egress traffic through a firewall, open the appropriate ports. For more information, see [Network requirements](https://learn.microsoft.com/en-us/windows-365/enterprise/requirements-network?tabs=enterprise%2Cent).
-    * If you are using an Azure Network Connection, then you can review the [Health Checks](https://learn.microsoft.com/en-us/windows-365/enterprise/health-checks) in the `ANC Resource > Overview > Status tab` to review the . More on this, when we start with the PoC.
+    * If you are using an Azure Network Connection, then you can review the [Health Checks](https://learn.microsoft.com/en-us/windows-365/enterprise/health-checks) in the `ANC Resource > Overview > Status tab`. More on this, when we start with the PoC.
 
 # Start Fresh - Cleanup resources
 
