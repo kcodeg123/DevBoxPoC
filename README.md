@@ -106,14 +106,14 @@ Check this [tutorial](https://blog.jongallant.com/2020/05/azure-delete-multiple-
 
 # Scenario 3: Project Lead manages assigned Projects with Self-hosted Network & custom VM Images
 
-* Prepare a custom Dev Box image (can be automated with VM Image Builder)
-* Create a system assigned/user assigned identity for the Dev Center
-> When adding this gallery, we will attempt to perform role assignments to give our service principal 'Reader' access and the dev center identity 'Contributor' access to the gallery. [Learn more](https://learn.microsoft.com/en-us/azure/dev-box/how-to-configure-azure-compute-gallery#provide-permissions-for-services-to-access-the-gallery)
-* Create a Dev Box definition with a custom VM image
+There are many ways in which a custom image can be made available for developers to use to deploy their dev boxes.
+1. Manually provision a VM > Manually customize the VM > Generalize the image (Sysprep) > Capture an image > Distribute to a Compute Gallery
+2. Use [Azure Image Builder](https://learn.microsoft.com/en-us/azure/virtual-machines/image-builder-overview?tabs=azure-powershell) using ARM templates
+3. Use Azure Image Builder via Portal Integration (Image Templates).
+   * We will use Portal AIB for this PoC as described [here](customVMImage\README.md). 
 
-## Developer actions
-* Create dev boxes
-* Connect to a dev box
+> AIB reduces the complexity of creating VM images. Removes the need to use complex tooling, processes, and manual steps to create a VM image. VM Image Builder abstracts out all these details and hides Azure-specific requirements, such as the need to generalize the image (Sysprep). You can add all the customizations you need for the image. It natively integrates with Azure Compute Gallery, which creates an image management system for distributing, replicating, versioning, and scaling images globally. Additionally, you can distribute the same resulting image as a virtual hard disk or as one or more managed images, without having to rebuild them from scratch.
+
   
 # Scenario 4: Use a remote desktop client to connect to a dev box
 
@@ -170,7 +170,9 @@ To ensure that resources are available for customers, Microsoft Dev Box has a li
 For more information, check the official [documentation](https://learn.microsoft.com/en-us/azure/dev-box/how-to-determine-your-quota-usage).
 If needed, you can [request a quota limit increase](https://learn.microsoft.com/en-us/azure/dev-box/how-to-request-quota-increase).
 
-# Scenario 10: Deploy using Infrastructure as Code
+# Scenario 10: Deploy using Infrastructure as Code (Bicep)
+
+Bicep IaC to expedite onboarding to Microsoft Dev Box and Azure Deployment Environments.
 
 The below section is inspired from this [Source](https://github.com/Azure-Samples/Devcenter). 
 
