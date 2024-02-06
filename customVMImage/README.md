@@ -99,7 +99,7 @@ The image version must meet the following requirements:
 * Default 64-GB OS disk size The OS disk size is automatically adjusted to the size specified in the SKU description of the Windows 365 license.
 * The image definition must have [trusted launch enabled](https://learn.microsoft.com/en-us/azure/virtual-machines/trusted-launch) as the security type
 
-### Step 4 - Start build
+## Step 4 - Start build
 
 In the created Image Template, click on `Start Build`.
 
@@ -107,7 +107,7 @@ You can `Refresh` the status and wait until the `Build run state` shows complete
 
 Wait for the build to complete before moving to the next steps.
 
-### Step 5 - Add the Compute Gallery to the Dev Center
+## Step 5 - Add the Compute Gallery to the Dev Center
 
 [Source](https://learn.microsoft.com/en-us/azure/dev-box/how-to-configure-azure-compute-gallery#provide-permissions-for-services-to-access-a-gallery)
 
@@ -125,13 +125,13 @@ Galleries cannot be added until an identity has been assigned to the Dev Center.
 > * When you use the Azure portal to attach the gallery to your dev center, the Dev Box service creates the necessary role assignments automatically after you attach the gallery. This is the option chosen for this PoC.
 > * When you use the Azure CLI to attach the gallery to your dev center, you must manually create the Windows 365 service principal and the dev center's managed identity role assignments before you attach the gallery. More details [here](https://learn.microsoft.com/en-us/azure/dev-box/how-to-configure-azure-compute-gallery#assign-roles).
 
-### Step 6 - Create the Dev Box Definition & Project
+## Step 6 - Create the Dev Box Definition & Project
 
 * Create a Dev Box definition with the new Image.
 * Create a new Project
 * Create a new Dev Box Pool
 * Assign the project to the developer persona
 
-### Step 7
+## Step 7
 
 The Developer can now log into the Developer Portal and test creating the dev box and logging in to it.
