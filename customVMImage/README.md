@@ -18,9 +18,8 @@ The Azure Compute Gallery feature has multiple resource types:
 
 ## Step 0 - Create a new RG & Dev Center
 
-* Resource Group
-  * Dev Center
-* Attach Dev Center to the 
+* Create a new Resource Group
+  * Create a new Dev Center
 
 ## Step 1 - Check your provider registrations
 
