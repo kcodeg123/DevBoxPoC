@@ -1,0 +1,25 @@
+{
+    "Name": "Azure Image Builder Image Def1707142946",
+    "IsCustom": true,
+    "Description": "Image Builder access to create resources for the image build, you should delete or split out as appropriate",
+    "Actions": [
+        "Microsoft.Compute/galleries/read",
+        "Microsoft.Compute/galleries/images/read",
+        "Microsoft.Compute/galleries/images/versions/read",
+        "Microsoft.Compute/galleries/images/versions/write",
+
+        "Microsoft.Compute/images/write",
+        "Microsoft.Compute/images/read",
+        "Microsoft.Compute/images/delete"
+    ],
+    "NotActions": [
+  
+    ],
+    "AssignableScopes": [
+      "/subscriptions/7718bf49-4f88-472b-a8df-2b4d9266d0f1/resourceGroups/logista-rg"
+    ]
+  }
+
+
+
+
