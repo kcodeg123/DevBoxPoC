@@ -58,7 +58,16 @@ This step creates a user-assigned identity with a custom role definition and set
 
 > VM Image Builder uses the provided user identity to inject the image into Azure Compute Gallery. The included script creates an Azure role definition with specific actions for distributing the image. The role definition is then assigned to the user identity.
 
-You may need to add Additional permissions on the managed identity![Additional permissions on the managed identity](image.png)
+```
+You may need to add Additional permissions on the managed identity. If you get a "LinkedAuthorizationFailed" error, then it could be because your service principal does not have the required permissions to assign a user-assigned identity to a virtual machine. To fix this issue, you need to grant the service principal the role of Managed Identity Operator on the user-assigned identity resource. You can do this by following these steps:
+* Navigate to the Azure portal and sign in with your account.
+* Search for User-assigned identities in the search box and select the service from the results.
+* Select the user-assigned identity that is mentioned in the error message (logista-uid1707142946).
+* Click on Access control (IAM) from the left menu.
+* Click on Add and select Add role assignment from the drop-down menu.
+* In the Add role assignment pane, select Managed Identity Operator as the role, and search for the service principal that is mentioned in the error message (the Managed Identity).
+* Select the service principal from the results and click Save.
+```
 
 ## Step 3 - Create Image Template
 
