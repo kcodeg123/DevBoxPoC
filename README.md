@@ -107,10 +107,33 @@ Check this [tutorial](https://blog.jongallant.com/2020/05/azure-delete-multiple-
 # Scenario 3: Project Lead manages assigned Projects with Self-hosted Network & custom VM Images
 
 There are many ways in which a custom image can be made available for developers to use to deploy their dev boxes.
-1. Manually provision a VM > Manually customize the VM > Generalize the image (Sysprep) > Capture an image > Distribute to a Compute Gallery
+1. Manually provision & customize a VM
+    * Create a New VM Resource
+      * Select an image (preferably a Dev Box compatible image - for example "Visual Studio 2022 Enterprise on Windows 11 Enterprise N (x64) - x64 Gen 2")
+      * Place it in the region where your other resources are located
+      * Set a user name and password
+      * All other options can remain as they are
+      * Deploy the VM
+    * Manually customize the VM
+      * Connect to the VM from the resource
+      * Install required additional softwares
+    * Generalize the image (Sysprep)
+      * In the VM machine windows OS, search for "Run" in the search bar and type **sysprep**
+      * Right-click the sysprep application and choose "Run as administrator"
+      * In sysprep use the following options
+        * Choose "Enter System Out-of-Box Experience" in the cleanup action dropdown
+        * Tick "Generalize"
+        * Choose "Shutdown" in the shutdown options dropdown
+    * Capture an image & distribute to a Compute Gallery
+      * Once sysprep completes, it will shut down the VM. Click on **Capture** available in the VM resource Overview page.
+      * Create a new Compute Gallery and a VM Image Definition if not already present
+    * After completing this step, you will have a VM Image version deployed to a Compute Gallery which can be used to deploy Dev Boxes following the same steps as when creating dev boxes from built-in VM images
+      * Refer to scenarios 1 & 2
+        * Create a new Dev Box Definition using the custom VM images
+        * Create a new dev box pool within the selected Project (select existing or create a new Project)
 2. Use [Azure Image Builder](https://learn.microsoft.com/en-us/azure/virtual-machines/image-builder-overview?tabs=azure-powershell) using ARM templates
 3. Use Azure Image Builder via Portal Integration (Image Templates).
-   * We will use Portal AIB for this PoC as described [here](customVMImage/README.md). 
+    * We will use Portal AIB for this PoC as described [here](customVMImage/README.md). 
 
 > AIB reduces the complexity of creating VM images. Removes the need to use complex tooling, processes, and manual steps to create a VM image. VM Image Builder abstracts out all these details and hides Azure-specific requirements, such as the need to generalize the image (Sysprep). You can add all the customizations you need for the image. It natively integrates with Azure Compute Gallery, which creates an image management system for distributing, replicating, versioning, and scaling images globally. Additionally, you can distribute the same resulting image as a virtual hard disk or as one or more managed images, without having to rebuild them from scratch.
 
