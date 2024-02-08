@@ -115,6 +115,7 @@ Galleries cannot be added until an identity has been assigned to the Dev Center.
 > When you use an Azure Compute Gallery image to create a dev box definition, the Windows 365 service validates the image to ensure that it meets the requirements to be provisioned for a dev box. Microsoft Dev Box replicates the image to the regions specified in the attached network connections, so the images are present in the region required for dev box creation.
 > To allow the services to perform these actions, you must provide permissions to your gallery as follows.
 
+* Create a new User Managed Identity
 * Add a User Managed Identity to the Dev Center
   * In the Settings blader of the Dev Center resource, go to `Identity`> `User assigned` and add a user assigned managed identity.
 * Attach the gallery to the dev center
