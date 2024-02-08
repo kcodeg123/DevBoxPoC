@@ -110,7 +110,7 @@ There are many ways in which a custom image can be made available for developers
 1. Manually provision a VM > Manually customize the VM > Generalize the image (Sysprep) > Capture an image > Distribute to a Compute Gallery
 2. Use [Azure Image Builder](https://learn.microsoft.com/en-us/azure/virtual-machines/image-builder-overview?tabs=azure-powershell) using ARM templates
 3. Use Azure Image Builder via Portal Integration (Image Templates).
-   * We will use Portal AIB for this PoC as described [here](customVMImage\README.md). 
+   * We will use Portal AIB for this PoC as described [here](customVMImage/README.md). 
 
 > AIB reduces the complexity of creating VM images. Removes the need to use complex tooling, processes, and manual steps to create a VM image. VM Image Builder abstracts out all these details and hides Azure-specific requirements, such as the need to generalize the image (Sysprep). You can add all the customizations you need for the image. It natively integrates with Azure Compute Gallery, which creates an image management system for distributing, replicating, versioning, and scaling images globally. Additionally, you can distribute the same resulting image as a virtual hard disk or as one or more managed images, without having to rebuild them from scratch.
 
