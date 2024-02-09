@@ -61,7 +61,7 @@ This step creates a user-assigned identity with a custom role definition and set
 You may need to add Additional permissions on the managed identity. If you get a "LinkedAuthorizationFailed" error, then it could be because your service principal does not have the required permissions to assign a user-assigned identity to a virtual machine. To fix this issue, you need to grant the service principal the role of Managed Identity Operator on the user-assigned identity resource. You can do this by following these steps:
 * Navigate to the Azure portal and sign in with your account.
 * Search for User-assigned identities in the search box and select the service from the results.
-* Select the user-assigned identity that is mentioned in the error message (logista-uid1707142946).
+* Select the user-assigned identity that is mentioned in the error message.
 * Click on Access control (IAM) from the left menu.
 * Click on Add and select Add role assignment from the drop-down menu.
 * In the Add role assignment pane, select Managed Identity Operator as the role, and search for the service principal that is mentioned in the error message (the Managed Identity).
@@ -70,9 +70,19 @@ You may need to add Additional permissions on the managed identity. If you get a
 
 ## Step 3 - Create Image Template
 
-Note - If you face issues seeing the managed identity from the Image Template resource, try to create the Image Template resource on `preview.portal.azure.com`
-
-On the Azure Portal > Create an `Image Templates` resource.
+On the Azure Portal > Create an `Image Templates` resource, keeping the following in mind:
+* Source image - Choose a **Marketplace** base image
+* Image - Choose a Dev Box compatible base image (search for example **Visual Studio 2022 Enterprise on Windows 11 Enterprise (x64) + Microsoft 365 Apps (Microsoft Dev Box compatible)**
+* Distribution targets - VM Image Version (we will distribute to the Compute Gallery)
+* VM image version details > Target Azure compute gallery - Create a new one if not already created
+* VM image version details > Target VM image definition - Create a new one if not already created
+* Select the Managed Identity created in the previous step
+> Note - If you face issues seeing the managed identity from the Image Template resource, try to create the Image Template resource on `preview.portal.azure.com`
+* Go to the Customizations page next and under **Customize with scripts** > ADD > `PowerShell Command`
+ * Add the desired commands from [imageCustomizations.md](imageCustomizations.md)
+ * Give Permissions = Elevated
+* Select **Review + Create** and then create the resource
+* After the Image Template gets created, go to the next step **Start Build**
 
 ### Compute Gallery Image Requirements
 
@@ -91,7 +101,6 @@ The image version must meet the following requirements:
 * Windows OS
   * Windows 10 Enterprise version 20H2 or later
   * Windows 11 Enterprise 21H2 or later
-
 * Generalized VM image
 * Single-session VM images (Multiple-session VM images aren't supported)
 * No recovery partition For information about how to remove a recovery partition, see the [Windows Server command: delete partition](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/delete-partition).
