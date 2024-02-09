@@ -1,20 +1,78 @@
+# Creating Custom VM Images with Azure VM Image Builder (Portal Integration)
+
+In this proof of concept (PoC), we will explore the process of creating custom virtual machine (VM) images using Azure VM Image Builder through the Azure Portal. However, first let's look into some of the core concepts.
+
 # Core Concepts
 
-For this PoC, we will choose to create the custom VM Images using VM Image Builder.
+## **Azure VM Image Builder for Microsoft Dev Boxes**
 
-## Azure Compute Gallery
+**Azure VM Image Builder** is a powerful tool designed to streamline the process of creating custom virtual machine (VM) images, specifically optimized for development environments. Here's how it benefits Microsoft Dev Boxes:
 
-[Souce](https://learn.microsoft.com/en-us/azure/virtual-machines/image-version?tabs=portal%2Ccli2)
+1. **Consistency and Standardization**:
+   - **Standardized Dev Environments**: Ensure that all your Microsoft Dev Boxes have consistent configurations, software, and security settings.
+   - **Effortless Deployment**: Set up a repeatable image-building pipeline without manual steps or complex infrastructure management.
 
-An Azure Compute Gallery (formerly known as Shared Image Gallery) simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Images can be created from a VM, VHD, snapshot, managed image, or another image version.
+2. **Infrastructure as Code (IaC)**:
+   - **Simplified Infrastructure Management**: VM Image Builder abstracts away the complexities of managing infrastructure.
+   - **Compute Gallery Integration**: Distribute, replicate, version, and scale Dev Box images globally with ease.
 
-The Azure Compute Gallery feature has multiple resource types:
+3. **Integration with Core Development Tools**:
+   - **Customize Dev Box Images**: Seamlessly integrate development tools, SDKs, and frameworks directly into VM images.
+   - **Optimized for Microsoft Dev Boxes**: Fine-tune the image for Visual Studio, .NET, Azure SDKs, and other essential tools.
 
-![image](https://github.com/kcodeg123/DevBoxPoC/assets/3813135/e98cdb7a-6c92-48f2-8ff2-c6fec771d6b0)
+4. **Automation and Efficiency**:
+   - **Managed Service**: VM Image Builder handles Azure-specific requirements (such as image generalization) behind the scenes.
+   - **Azure DevOps Integration**: Seamlessly incorporate VM image building into your existing DevOps pipelines.
+   - **Fetch Customization Data**: Easily retrieve configuration data from various sources.
+
+## **Azure Image Templates: Enhancing the Experience**
+
+When combined with **Azure Image Templates**, VM Image Builder becomes even more potent for Microsoft Dev Boxes:
+
+1. **Portal Integration**:
+   - **New Portal Functionality**: Access Azure Image Builder directly from the Azure portal.
+   - **Create and Validate Images**: Build and validate custom images within the portal itself.
+
+2. **Tailored Image Templates**:
+   - **Dev Box-Specific Templates**: Craft image templates optimized for Microsoft Dev Boxes.
+   - **Accelerate Development**: Quickly spin up Dev Boxes with pre-configured tools and settings.
+
+In summary, Azure VM Image Builder simplifies image creation, ensures consistency, and seamlessly integrates with Azure Image Templates, making it an ideal choice for building efficient and standardized Microsoft Dev Boxes.
+
+
+## **Image Source**
+- An **image source** is a resource used to create an **image version** within an Azure Compute Gallery.
+- It can be:
+  - An existing **Azure VM** (either generalized or specialized).
+  - A **managed image**.
+  - A **snapshot**.
+  - An **image version** from another gallery.
+
+## **Compute Gallery**
+- The **Azure Compute Gallery**, formerly known as the **Shared Image Gallery**, simplifies sharing custom images across your organization.
+- Key features:
+  - **Global Replication**: Images can be replicated to multiple regions for quicker scaling of deployments.
+  - **Versioning and Grouping**: Organize resources for easier management.
+  - **High Availability**: Supports Zone Redundant Storage (ZRS) accounts in regions with Availability Zones.
+  - **Sharing Options**: Share resources within your organization, across regions, or publicly using a community gallery.
+
+## **Image Definition**
+- **Image definitions** are created within a gallery.
+- They carry information about the image requirements for internal use.
+- Includes details like whether the image is for Windows or Linux, release notes, and minimum/maximum memory requirements.
+
+## **Image Version**
+- An **image version** is used to create a VM when using a gallery.
+- You can have multiple versions of an image as needed for your environment.
+- When creating a VM using an image version, it's used to create new disks for the VM.
+- Image versions can be reused.
+
 
 ----
 
-# Step by step guide
+# Step-by-Step guide
+
+This guide will walk you through how to create custom VM images using Azure VM Image Builder through the Azure Portal. Another way to do this is via ARM templates as described [here](https://learn.microsoft.com/en-us/azure/dev-box/how-to-customize-devbox-azure-image-builder).
 
 ## Step 0 - Create a new RG & Dev Center
 
