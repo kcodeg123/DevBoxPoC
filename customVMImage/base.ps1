@@ -29,7 +29,7 @@ $location="westeurope"
 # Set up role definition names, which need to be unique 
 $timeInt=$(get-date -UFormat "%s") 
 $imageRoleDefName="Azure Image Builder Image Def"+$timeInt 
-$identityName="logista-uid"+$timeInt 
+$identityName="myUID"+$timeInt 
 
 # Add an Azure PowerShell module to support AzUserAssignedIdentity 
 Install-Module -Name Az.ManagedServiceIdentity 
