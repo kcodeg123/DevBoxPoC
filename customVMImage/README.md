@@ -194,11 +194,15 @@ Galleries cannot be added until an identity has been assigned to the Dev Center.
 
 ## Step 6 - Create the Dev Box Definition & Project
 
-* Create a Dev Box definition with the new Image.
+* Create a Dev Box definition with the new Image from the Compute Gallery
 * Create a new Project
 * Create a new Dev Box Pool
 * Assign the project to the developer persona
 
+Refer to the [Dev Box Quickstarts](https://learn.microsoft.com/en-us/azure/dev-box/quickstart-configure-dev-box-service) in case of any doubt regarding this step.
+
 ## Step 7
 
 The Developer can now log into the Developer Portal and test creating the dev box and logging in to it.
+
+Refer to [Quickstart: Create and connect to a dev box by using the Microsoft Dev Box developer portal](https://learn.microsoft.com/en-us/azure/dev-box/quickstart-create-dev-box) in case of any doubt regarding this step.
