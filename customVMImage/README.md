@@ -1,6 +1,6 @@
 # Creating Custom VM Images with Azure VM Image Builder (Portal Integration)
 
-In this proof of concept (PoC), we will explore the process of creating custom virtual machine (VM) images using Azure VM Image Builder through the Azure Portal. However, first let's look into some of the core concepts.
+In this tutorial, we will explore the process of creating custom virtual machine (VM) images using Azure VM Image Builder through the Azure Portal. However, first let's look into some of the core concepts.
 
 # Core Concepts
 
@@ -189,7 +189,7 @@ Galleries cannot be added until an identity has been assigned to the Dev Center.
 
 
 > Microsoft Dev Box behaves differently depending how you attach your gallery:
-> * When you use the Azure portal to attach the gallery to your dev center, the Dev Box service creates the necessary role assignments automatically after you attach the gallery. This is the option chosen for this PoC.
+> * When you use the Azure portal to attach the gallery to your dev center, the Dev Box service creates the necessary role assignments automatically after you attach the gallery. This is the option chosen for this tutorial.
 > * When you use the Azure CLI to attach the gallery to your dev center, you must manually create the Windows 365 service principal and the dev center's managed identity role assignments before you attach the gallery. More details [here](https://learn.microsoft.com/en-us/azure/dev-box/how-to-configure-azure-compute-gallery#assign-roles).
 
 ## Step 6 - Create the Dev Box Definition & Project
